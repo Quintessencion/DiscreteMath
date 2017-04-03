@@ -26,7 +26,7 @@ public class View extends JFrame {
     JLabel fieldZ = new JLabel();
 
     JTextField fieldX = new JTextField(3);
-    JTextField result = new JTextField();
+    JLabel resultX = new JLabel();
 
     JButton buttonCalc = new JButton("Операция над множествами");
     JButton buttonfindX = new JButton("Найти X");
@@ -76,14 +76,15 @@ public class View extends JFrame {
         labelResult.setForeground(Color.blue);
         addComponent(labelResult, 4, 0, 2, 1);
         addComponent(new JLabel("Z:"), 4, 1, 1, 1);
-        fieldZ.setBackground(Color.GREEN);
+        fieldZ.setForeground(new Color(0, 170, 0));
         addComponent(fieldZ, 5, 1, 1, 1);
 
         addComponent(new JLabel("Задайте число:"), 4, 2, 2, 1);
         addComponent(new JLabel("x:"), 4, 3, 1, 1);
         addComponent(fieldX, 5, 3, 1, 1);
         addComponent(new JLabel("Результат совпадения:"), 4, 4, 2, 1);
-        addComponent(result, 5, 5, 1, 1);
+        resultX.setForeground(new Color(0, 170, 0));
+        addComponent(resultX, 5, 5, 1, 1);
         buttonfindX.addActionListener(controller);
         addComponent(buttonfindX, 5, 6, 1, 1);
 

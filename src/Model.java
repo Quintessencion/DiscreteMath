@@ -38,20 +38,15 @@ public class Model {
         return result.length() == 0 ? "Пустое множество" : result;
     }
 
-
-    public void printSets() {
-        for (Set<Integer> s : setOfSets) {
-            for (Integer i : s) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-    }
-
     public void clearSets() {
         setResult.clear();
         setOfSets.clear();
+    }
+
+    public String findX(int x) {
+        if (setResult.contains(x)) return String.valueOf(x);
+
+        return "";
     }
 }
 
