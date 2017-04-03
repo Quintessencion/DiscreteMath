@@ -4,13 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Map;
 
-public class Controller extends JPanel implements ActionListener {
+class Controller extends JPanel implements ActionListener {
     //Fields
     private Model model;
     private View view;
 
     //Constructor
-    public Controller(Model model) {
+    Controller(Model model) {
         this.model = model;
         view = new View(this);
     }
@@ -29,11 +29,13 @@ public class Controller extends JPanel implements ActionListener {
         String line;
 
         for (Map.Entry<JTextField, JLabel> map : view.getMapSets().entrySet()) {
+
             try {
                 map.getValue().setText("                                               ");
                 line = map.getKey().getText();
 
-                if (line == null || line.length() == 0 || line == "") continue;
+                if (line == null || line.length() == 0 || line.equals("")) continue;
+
                 if (line.contains(", ")) {
                     model.addSet(line.trim().split(", "));
                 } else if (line.contains(" ")) {

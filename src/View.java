@@ -22,7 +22,6 @@ class View extends JFrame {
     private JLabel labelField5 = new JLabel("                                               ");
 
     private JLabel labelResult = new JLabel("Результат пересечения подмножеств");
-
     JLabel fieldZ = new JLabel();
 
     JTextField fieldX = new JTextField(3);
