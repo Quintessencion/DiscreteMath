@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class View extends JFrame {
+class View extends JFrame {
     //Fields
     private Controller controller;
 
@@ -11,8 +11,8 @@ public class View extends JFrame {
 
     private JTextField textFieldSet1 = new JTextField("-7, -5, -1, 0, 1, 2, 3, 5, 9", 10);
     private JTextField textFieldSet2 = new JTextField("-7, -6, -5, -4, -1, 0, 2, 3, 5, 8", 10);
-    private JTextField textFieldSet3 = new JTextField("-9, -7, -3, -1, 0, 2, 4, 5, 10", 10);
-    private JTextField textFieldSet4 = new JTextField("-7, -6, -4, 0, 1, 2, 3, 8", 10);
+    private JTextField textFieldSet3 = new JTextField(10);//"-9, -7, -3, -1, 0, 2, 4, 5, 10",
+    private JTextField textFieldSet4 = new JTextField(10);//"-7, -6, -4, 0, 1, 2, 3, 8",
     private JTextField textFieldSet5 = new JTextField(10);
 
     private JLabel labelField1 = new JLabel("                                               ");
@@ -32,7 +32,7 @@ public class View extends JFrame {
     JButton buttonfindX = new JButton("Найти X");
 
     //Constructor
-    public View(Controller controller) throws HeadlessException {
+    View(Controller controller) throws HeadlessException {
         this.controller = controller;
 
         mapSets.put(textFieldSet1, labelField1);
@@ -89,7 +89,7 @@ public class View extends JFrame {
         addComponent(buttonfindX, 5, 6, 1, 1);
 
         setTitle("Множества");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setSize(700, 300);
         setLocationRelativeTo(null);
         pack();
@@ -102,7 +102,7 @@ public class View extends JFrame {
                 GridBagConstraints.WEST, GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
     }
 
-    public Map<JTextField, JLabel> getMapSets() {
+    Map<JTextField, JLabel> getMapSets() {
         return mapSets;
     }
 }
