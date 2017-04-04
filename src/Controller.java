@@ -19,8 +19,10 @@ class Controller extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals(view.buttonCalc.getText())) {
+            //Кнопка Операция над множествами
             findSets();
         } else if (e.getActionCommand().equals(view.buttonfindX.getText())) {
+            //Кнопка Найти X
             findX();
         }
     }
@@ -28,14 +30,16 @@ class Controller extends JPanel implements ActionListener {
     private void findSets() {
         String line;
 
+        //Прохождение по карте для добавления данных в Set
         for (Map.Entry<JTextField, JLabel> map : view.getMapSets().entrySet()) {
+            //Установка в JLabel пустого поля
+            map.getValue().setText("                                               ");
 
+            line = map.getKey().getText();
+            if (line == null || line.length() == 0 || line.equals("")) continue;
+
+            //Проверка на валидность введенных данных
             try {
-                map.getValue().setText("                                               ");
-                line = map.getKey().getText();
-
-                if (line == null || line.length() == 0 || line.equals("")) continue;
-
                 if (line.contains(", ")) {
                     model.addSet(line.trim().split(", "));
                 } else if (line.contains(" ")) {
@@ -58,11 +62,13 @@ class Controller extends JPanel implements ActionListener {
 
     private void findX() {
         int x = 0;
+
         try {
             x = Integer.parseInt(view.fieldX.getText().trim());
         } catch (NumberFormatException e1) {
             JOptionPane.showMessageDialog(this, "Некорректный ввод! Введите число!", "Ошибка", JOptionPane.ERROR_MESSAGE);
         }
+        //Установка результата в поле X
         view.resultX.setText(model.findX(x));
     }
 }

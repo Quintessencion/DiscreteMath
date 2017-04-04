@@ -47,6 +47,7 @@ class View extends JFrame {
     private void initDisplay() {
         setLayout(new GridBagLayout());
 
+        //Добавление компонентов в окно
         addComponent(new JLabel("Введите элементы множества через запятую или пробел"), 0, 0, 2, 1);
 
         addComponent(new JLabel("A:"), 0, 1, 1, 1);
@@ -82,6 +83,7 @@ class View extends JFrame {
         addComponent(new JLabel("x:"), 4, 3, 1, 1);
         addComponent(fieldX, 5, 3, 1, 1);
         addComponent(new JLabel("Результат совпадения:"), 4, 4, 2, 1);
+
         resultX.setForeground(new Color(0, 170, 0));
         addComponent(resultX, 5, 5, 1, 1);
         buttonfindX.addActionListener(controller);

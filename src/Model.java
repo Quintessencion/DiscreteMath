@@ -13,6 +13,7 @@ class Model {
 
     //Functions
     void addSet(String... split) throws NumberFormatException {
+        //Добавления множеств с полей ввода
         Set<Integer> listSet = new TreeSet<>();
         for (String s : split) {
             listSet.add(Integer.parseInt(s));
@@ -25,12 +26,14 @@ class Model {
 
         if (setOfSets.size() != 0) {
             setResult.addAll(setOfSets.get(0));
+            //Поиск пересечений множеств
             for (int i = 1; i < setOfSets.size(); i++) {
                 setResult.retainAll(setOfSets.get(i));
             }
         }
 
         setOfSets.clear();
+
         String result = setResult.toString().substring(1, setResult.toString().length() - 1);
         return result.length() == 0 ? "Пустое множество" : result;
     }
@@ -49,6 +52,7 @@ class Model {
         int pre;
         int next;
 
+        //Поиск числа ближайшего к X
         for (int i = 0; i < list.size(); i++) {
             pre = list.get(i);
 
